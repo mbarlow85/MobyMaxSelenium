@@ -15,10 +15,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.*;
 
-import com.asprise.ocr.Ocr;
-import com.thoughtworks.selenium.webdriven.WebDriverBackedSelenium;
 
 import test.mobymax.qa.helpers.pageelements.Button;
 import test.mobymax.qa.helpers.pageelements.CheckBox;
@@ -34,17 +33,17 @@ public class Base {
 
 	@Before
 	public void openBrowser() {
-		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
-		driver = new ChromeDriver(); 
-		//driver=new FirefoxDriver();		
+//		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
+//		driver = new ChromeDriver(); 
+		driver=new FirefoxDriver();		
 		driver.manage().window().maximize();		
 		screenshotHelper = new ScreenshotHelper();
 	}
 
 	@After
 	public void saveScreenshotAndCloseBrowser() throws IOException {
-		//		screenshotHelper.saveScreenshot("screenshot.png");
-		//		driver.quit();
+				screenshotHelper.saveScreenshot("screenshot.png");
+				driver.quit();
 	} 
 
 	public void getUpWorkRegistration() throws IOException, InterruptedException
